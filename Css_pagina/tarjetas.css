@@ -1,28 +1,41 @@
 /* --- Services Section --- */
-.services {
-    padding: 60px 80px;
+.services-section {
+    padding: 80px 100px 60px;
+    position: relative;
+}
+
+/* Línea separadora negra */
+.services-divider {
+    width: 100%;
+    height: 4px;
+    background: #000;
+    margin-bottom: 50px;
 }
 
 .services-title {
-    font-size: 30px;
-    margin-bottom: 25px;
-    font-weight: 600;
+    font-size: 48px;
+    margin-bottom: 50px;
+    font-weight: 700;
     text-align: center;
+    color: #000;
+    letter-spacing: -1px;
 }
 
 /* --- Cards Grid --- */
 .cards-container {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 280px)); /* columnas de 280px */
-    gap: 35px; /* reducir espacio entre tarjetas */
-    justify-content: center; /* centra el grid en el contenedor */
-    justify-items: stretch; /* las tarjetas llenan la columna */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 /* --- Card Style --- */
 .card {
     width: 100%;
-    max-width: 280px;
+    max-width: 380px;
+    margin: 0 auto;
     background: #fff;
     border-radius: 14px;
     overflow: hidden;
@@ -34,7 +47,7 @@
 /* Imagen */
 .card img {
     width: 100%;
-    height: 190px;
+    height: 220px;
     object-fit: cover;
     transition: transform 0.4s ease;
 }
@@ -43,34 +56,107 @@
 .card-title {
     font-size: 18px;
     font-weight: 600;
-    padding: 18px;
+    padding: 20px;
     color: #111;
+    text-align: center;
 }
 
 /* Animaciones elegantes */
 .card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
 }
 
 .card:hover img {
     transform: scale(1.07);
 }
 
-/* Responsive */
-@media (max-width: 992px) {
-    .cards-container {
-        grid-template-columns: repeat(2, 1fr);
+/* ----- RESPONSIVIDAD MEJORADA ----- */
+
+/* Tablets grandes */
+@media (max-width: 1200px) {
+    .services-section {
+        padding: 60px 60px 50px;
+    }
+
+    .card {
+        max-width: 100%;
     }
 }
 
-@media (max-width: 620px) {
+/* Tablets (2 columnas) */
+@media (max-width: 900px) {
+    .services-section {
+        padding: 50px 40px 40px;
+    }
+
+    .services-title {
+        font-size: 40px;
+        margin-bottom: 40px;
+    }
+
+    .services-divider {
+        margin-bottom: 40px;
+    }
+
     .cards-container {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+        padding: 0 10px;
+    }
+
+    .card img {
+        height: 200px;
     }
 }
-.subtitle{
-    margin-top: 30px;
-    text-align: center;
-    position: relative;
+
+/* Móviles (1 columna) */
+@media (max-width: 600px) {
+    .services-section {
+        padding: 40px 30px 30px;
+    }
+
+    .services-title {
+        font-size: 32px;
+        margin-bottom: 35px;
+    }
+
+    .services-divider {
+        margin-bottom: 35px;
+        height: 3px;
+    }
+
+    .cards-container {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        padding: 0;
+    }
+
+    .card {
+        max-width: 100%;
+    }
+
+    .card img {
+        height: 220px;
+    }
+
+    .card-title {
+        font-size: 20px;
+        padding: 18px;
+    }
+}
+
+/* Móviles pequeños */
+@media (max-width: 400px) {
+    .services-section {
+        padding: 30px 20px 25px;
+    }
+
+    .services-title {
+        font-size: 28px;
+    }
+
+    .card img {
+        height: 200px;
+    }
 }
