@@ -13,14 +13,16 @@
 /* --- Cards Grid --- */
 .cards-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 35px;
-    justify-items: center;
+    grid-template-columns: repeat(3, minmax(0, 280px)); /* columnas de 280px */
+    gap: 35px; /* reducir espacio entre tarjetas */
+    justify-content: center; /* centra el grid en el contenedor */
+    justify-items: stretch; /* las tarjetas llenan la columna */
 }
 
 /* --- Card Style --- */
 .card {
-    width: 280px;
+    width: 100%;
+    max-width: 280px;
     background: #fff;
     border-radius: 14px;
     overflow: hidden;
