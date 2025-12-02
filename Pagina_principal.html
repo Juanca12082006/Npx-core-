@@ -4,15 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Npx Core</title>
-    <link rel="stylesheet" href="Css Pagina/Pagina.css">
-    <link rel="stylesheet" href="Css Pagina/carrusel.css">
-    <link rel="stylesheet" href="Css Pagina/tarjetas.css">
+    <link rel="stylesheet" href="Css_pagina/Pagina.css">
+    <link rel="stylesheet" href="Css_pagina/carrusel.css">
+    <link rel="stylesheet" href="Css_pagina/tarjetas.css">
     
 </head>
 <body>
 
     <header class="header">
         <div class="logo">Npx Core <span class="tag"> &lt;/&gt;</span></div>
+
+        <button class="hamburger" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
 
         <nav class="nav">
             <a href="#" class="nav-link">HOME</a>
@@ -21,6 +27,9 @@
             <a href="#" class="nav-link active">ABOUT</a>
         </nav>
     </header>
+
+    <!-- Overlay para menú móvil -->
+    <div class="overlay"></div>
 
     <div class="divider"></div>
      <div class="container">
@@ -37,19 +46,19 @@
 
         <div class="carousel-container">
             <div class="slide active">
-                <img src="Img pagina/image 1.png" alt="Desarrollo Web">
+                <img src="Img_pagina/logo_principal.png" alt="Desarrollo Web">
             </div>
 
             <div class="slide">
-                <img src="Img pagina/image 3.png" alt="Apps Móviles">
+                <img src="Img_pagina/logo_principal.png" alt="Apps Móviles">
             </div>
 
             <div class="slide">
-                <img src="img/software-medida.jpg" alt="Software a la medida">
+                <img src="Img_pagina/logo_principal.png" alt="Software a la medida">
             </div>
 
             <div class="slide">
-                <img src="img/soporte-ti.jpg" alt="Soporte TI">
+                <img src="Img_pagina/logo_principal.png" alt="Soporte TI">
             </div>
         </div>
     </div>
@@ -60,32 +69,32 @@
     <div class="cards-container">
 
         <div class="card">
-            <img src="Img pagina/image 3.png" alt="Service 1">
+            <img src="Img_pagina/image_3.png" alt="Service 1">
             <h3 class="card-title">Web Development</h3>
         </div>
 
         <div class="card">
-            <img src="Img pagina/image 1.png" alt="Service 2">
+            <img src="Img_pagina/image_1.png" alt="Service 2">
             <h3 class="card-title">Mobile Apps</h3>
         </div>
 
         <div class="card">
-            <img src="Img pagina/image 3.png" alt="Service 3">
+            <img src="Img_pagina/image_3.png" alt="Service 3">
             <h3 class="card-title">Custom Software</h3>
         </div>
 
         <div class="card">
-            <img src="Img pagina/image 1.png" alt="Service 4">
+            <img src="Img_pagina/image_1.png" alt="Service 4">
             <h3 class="card-title">UI/UX Design</h3>
         </div>
 
         <div class="card">
-            <img src="Img pagina/image 3.png" alt="Service 5">
+            <img src="Img_pagina/image_3.png" alt="Service 5">
             <h3 class="card-title">E-Commerce Solutions</h3>
         </div>
 
         <div class="card">
-            <img src="Img pagina/image 1.png" alt="Service 6">
+            <img src="Img_pagina/image_1.png" alt="Service 6">
             <h3 class="card-title">Cloud & DevOps</h3>
         </div>
 
@@ -121,7 +130,8 @@
 
 <!-- CDN de iconos Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<script src="Js Pagina/carrusel.js" defer></script>
+<script src="Js_Pagina/Carrusel.js" defer></script>
+<script src="Js_Pagina/Pagina.js" defer></script>
 
 </body>
 </html>
