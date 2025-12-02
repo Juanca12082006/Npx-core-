@@ -4,6 +4,7 @@ const hamburger = document.querySelector('.hamburger');
 const nav = document.querySelector('.nav');
 const overlay = document.querySelector('.overlay');
 const navLinks = document.querySelectorAll('.nav-link');
+const header = document.querySelector('.header');
 
 // Toggle del menú al hacer clic en hamburguesa
 hamburger.addEventListener('click', () => {
@@ -42,4 +43,33 @@ document.addEventListener('keydown', (e) => {
         document.body.style.overflow = 'auto';
     }
 });
+
+// ===== FUNCIONALIDAD: OCULTAR/MOSTRAR NAVBAR CON SCROLL =====
+
+let lastScrollTop = 0;
+const scrollThreshold = 100; // Pixeles de scroll antes de activar el efecto
+
+window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+    // Agregar sombra cuando hay scroll
+    if (currentScroll > 10) {
+        header.classList.add('scrolled');
+    } else {
+        header.classList.remove('scrolled');
+    }
+
+    // Ocultar/mostrar header basado en dirección del scroll
+    if (currentScroll > scrollThreshold) {
+        if (currentScroll > lastScrollTop) {
+            // Scroll hacia ABAJO - Ocultar header
+            header.classList.add('hidden');
+        } else {
+            // Scroll hacia ARRIBA - Mostrar header
+            header.classList.remove('hidden');
+        }
+    }
+
+    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+}, false);
 
