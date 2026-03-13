@@ -234,7 +234,7 @@
     font-size: clamp(42px,7vw,88px);
     font-weight: 900; line-height: 1;
     background: #ffffff;
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
     background-clip: text;
     margin-bottom: 8px;
     animation: fadeIn .8s ease .4s both;
