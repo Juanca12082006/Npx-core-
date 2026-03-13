@@ -1,243 +1,565 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Npx Core</title>
-    <link rel="stylesheet" href="Css_pagina/Pagina.css">
-    <link rel="stylesheet" href="Css_pagina/carrusel.css">
-    <link rel="stylesheet" href="Css_pagina/tarjetas.css">
-    <link rel="stylesheet" href="Css_pagina/contacto.css">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Npx Core</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="Css_pagina/Pagina.css">
 </head>
 <body>
 
-    <header class="header">
+<!-- PARTÍCULAS -->
+<canvas id="particle-canvas"></canvas>
 
-        <div class="logo">Npx Core <span class="tag"> &lt;/&gt;</span></div>
+<!-- ════════════════════════════════════════════════
+     HEADER
+════════════════════════════════════════════════ -->
+<header class="header" id="mainHeader">
+  <div class="logo">Npx Core <span class="tag">&lt;/&gt;</span></div>
 
-        <button class="hamburger" aria-label="Menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 
-        <nav class="nav">
-            <a href="#home" class="nav-link">HOME</a>
-            <a href="#services" class="nav-link">SERVICES</a>
-            <a href="#contact" class="nav-link">CONTACT</a>
-            <a href="#" class="nav-link active">ABOUT</a>
-        </nav>
-    </header>
+  <nav class="nav" id="mainNav">
+    <a href="#home"     class="nav-link active">INICIO</a>
+    <a href="#services" class="nav-link">SERVICIOS</a>
+    <a href="#contact"  class="nav-link">CONTACTO</a>
+    <a href="#about"    class="nav-link">NOSOTROS</a>
+  </nav>
+</header>
 
-    <!-- Overlay para menú móvil -->
-    <div class="overlay"></div>
+<!-- ════════════════════════════════════════════════
+     HERO
+════════════════════════════════════════════════ -->
+<section id="home" class="hero">
+  <div class="hero-corner tl"></div>
+  <div class="hero-corner tr"></div>
+  <div class="hero-corner bl"></div>
+  <div class="hero-corner br"></div>
 
-    <div class="divider"></div>
-     <div class="container">
-        <h1 class="title"> Npx Core  &lt;/&gt;</h1>
-        <p class="subtitle">
-            We turn challenges into powerful digital solutions, delivering secure, scalable, and high-performance software tailored to your business.</p>
+  <div class="hero-content">
+    <span class="hero-eyebrow">// sistema.inicializar — npxcore.arranque</span>
+    <h1 class="hero-title">
+      <span class="glitch-wrap" data-text="NPX CORE">NPX CORE</span>
+    </h1>
+    <p class="hero-tagline">&lt;/&gt; Construir. Desplegar. Evolucionar.</p>
+    <p class="hero-desc">
+      Convertimos desafíos en soluciones digitales poderosas, entregando software
+      seguro, escalable y de alto rendimiento adaptado a tu negocio.
+    </p>
+    <div class="hero-btns">
+      <a href="#services" class="btn-primary">Ver Servicios</a>
+      <a href="#contact"  class="btn-outline">Contáctanos</a>
+    </div>
+  </div>
+
+  <div class="scroll-hint">
+    <span>Scroll</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════
+     CAROUSEL
+════════════════════════════════════════════════ -->
+<div class="carousel-section reveal">
+  <div class="carousel" id="carousel">
+    <button class="carousel-btn prev" id="prevBtn">&#10094;</button>
+    <button class="carousel-btn next" id="nextBtn">&#10095;</button>
+
+    <div class="carousel-container" id="carouselTrack">
+      <div class="slide slide-video">
+        <video class="video-slide" id="carouselVideo" muted playsinline autoplay loop>
+          <source src="animation/videologo.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="slide">
+        <img src="Img_pagina/carr2.jpg" alt="Apps Móviles"/>
+      </div>
+      <div class="slide">
+        <img src="Img_pagina/carr3.jpg" alt="Software a la Medida"/>
+      </div>
+      <div class="slide">
+        <img src="Img_pagina/carr4.jpg" alt="Soporte TI"/>
+      </div>
     </div>
 
-    <!-- Carrusel con contenedor wrapper -->
-    <div id="home" class="carousel">
-        <!-- Botones -->
-        <button class="btn prev">&#10094;</button>
-        <button class="btn next">&#10095;</button>
+    <div class="carousel-dots" id="carouselDots"></div>
+  </div>
+</div>
 
-        <div class="carousel-container">
-            <div class="slide active slide-video">
-                <video class="video-slide" id="carouselVideo" muted playsinline>
-                    <source src="animation/videologo.mp4" type="video/mp4">
-                    Tu navegador no soporta el video.
-                </video>
-            </div>
+<!-- ════════════════════════════════════════════════
+     SERVICES
+════════════════════════════════════════════════ -->
+<section id="services" class="services-section">
+  <div class="neon-line"></div>
 
-            <div class="slide">
-                <img src="Img_pagina/carr2.jpg" alt="Apps Móviles">
-            </div>
+  <div class="services-header reveal up" style="text-align:center; margin-bottom:0; padding-top:50px;">
+    <span class="sec-label">// sistema.servicios</span>
+    <h2 class="sec-title">
+      <span class="glitch-wrap" data-text="SERVICIOS">SERVICIOS</span>
+    </h2>
+    <p style="font-size:15px;color:var(--muted);margin-top:12px;letter-spacing:1px;">
+      Tecnología de vanguardia para proyectos sin límites
+    </p>
+    <div class="hlines"><span></span><i></i><span></span></div>
+  </div>
 
-            <div class="slide">
-                <img src="Img_pagina/carr3.jpg" alt="Software a la medida">
-            </div>
+  <div class="cards-container">
 
-            <div class="slide">
-                <img src="Img_pagina/carr4.jpg" alt="Soporte TI">
-            </div>
-        </div>
+    <div class="card card-1" data-modal="1">
+      <div class="card-img-wrap">
+        <img src="Img_pagina/image_3.png" alt="Desarrollo Web"/>
+        <span class="card-badge">SVC_01</span>
+      </div>
+      <div class="card-body">
+        <span class="card-tag">// frontend & backend</span>
+        <h3 class="card-title">Desarrollo Web</h3>
+        <button class="card-btn">Ver más ▶</button>
+      </div>
+      <div class="card-line"></div>
     </div>
 
-
-    <!-- Services Section -->
-    <section id="services" class="services-section">
-        <div class="services-divider"></div>
-        <h2 class="services-title">Services</h2>
-
-        <div class="cards-container">
-
-            <div class="card">
-                <img src="Img_pagina/image_3.png" alt="Service 1">
-                <h3 class="card-title">Web Development</h3>
-            </div>
-
-            <div class="card">
-                <img src="Img_pagina/desarrollo%20movil.png" alt="Service 2">
-                <h3 class="card-title">Mobile Apps</h3>
-            </div>
-
-            <div class="card">
-                <img src="Img_pagina/customsft.png" alt="Service 3">
-                <h3 class="card-title">Custom Software</h3>
-            </div>
-
-            <div class="card">
-                <img src="Img_pagina/ux_ui.png" alt="Service 4">
-                <h3 class="card-title">UI/UX Design</h3>
-            </div>
-
-            <div class="card">
-                <img src="Img_pagina/ecomerce.png" alt="Service 5">
-                <h3 class="card-title">E-Commerce Solutions</h3>
-            </div>
-
-            <div class="card">
-                <img src="Img_pagina/cloud.png" alt="Service 6">
-                <h3 class="card-title">Cloud & DevOps</h3>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section">
-                <div class="services-divider"></div>
-
-        <div class="contact-container">
-
-            <!-- Left: Image -->
-            <div class="contact-image">
-                <img src="Img_pagina/logodesarrollo.jpeg" alt="Contact Us">
-            </div>
-
-            <!-- Right: Form -->
-            <div class="contact-form-wrapper">
-                <h2 class="contact-title">Contact Us</h2>
-                <form id="contactForm" class="contact-form">
-
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" placeholder="Enter your name" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="phone">Phone</label>
-                        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="request">Request</label>
-                        <textarea id="request" name="request" rows="5" placeholder="Tell us about your project or inquiry" required></textarea>
-                    </div>
-
-                    <button type="submit" class="submit-btn">Send to WhatsApp</button>
-                </form>
-            </div>
-
-        </div>
-    </section>
-
-        <div class="services-divider"></div>
-
-<footer class="footer">
-
-    <div class="footer-container">
-
-        <!-- Columna 1: Brand -->
-        <div class="footer-brand">
-            <h3>Npx Core <span class="tag-footer">&lt;/&gt;</span></h3>
-            <p class="footer-description">
-                Transforming ideas into scalable digital solutions.
-                We build the future, one line of code at a time.
-            </p>
-            <div class="social-icons">
-                <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            </div>
-        </div>
-
-        <!-- Columna 2: Services -->
-        <div class="footer-column">
-            <h4>Services</h4>
-            <ul>
-                <li><a href="#">Web Development</a></li>
-                <li><a href="#">Mobile Apps</a></li>
-                <li><a href="#">Custom Software</a></li>
-                <li><a href="#">UI/UX Design</a></li>
-            </ul>
-        </div>
-
-        <!-- Columna 3: Company -->
-        <div class="footer-column">
-            <h4>Company</h4>
-            <ul>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Our Team</a></li>
-                <li><a href="#">Careers</a></li>
-                <li><a href="#">Blog</a></li>
-            </ul>
-        </div>
-
-        <!-- Columna 4: Contact -->
-        <div class="footer-column">
-            <h4>Contact</h4>
-            <ul>
-
-                <li>
-                    <i class="fas fa-phone"></i>
-                    <a href="tel:3012655645">301 265 5645</a>
-                </li>
-
-                <li>
-                    <i class="fas fa-phone"></i>
-                    <a href="tel:3012655645">314 2944456</a>
-                </li>
-
-                <li>
-                    <i class="fas fa-envelope"></i>
-                    <a href="mailto:stevanpre@gmail.com">stevanpre@gmail.com</a>
-                </li>
-
-                <li>
-                    <i class="fas fa-envelope"></i>
-                    <a href="mailto:stevanpre@gmail.com">marinonaranjoj@gmail.com</a>
-                </li>
-                <li>
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span>Colombia</span>
-                </li>
-            </ul>
-        </div>
-
+    <div class="card card-2" data-modal="2">
+      <div class="card-img-wrap">
+        <img src="Img_pagina/desarrollo%20movil.png" alt="Apps Móviles"/>
+        <span class="card-badge">SVC_02</span>
+      </div>
+      <div class="card-body">
+        <span class="card-tag">// iOS & Android</span>
+        <h3 class="card-title">Apps Móviles</h3>
+        <button class="card-btn">Ver más ▶</button>
+      </div>
+      <div class="card-line"></div>
     </div>
 
-    <!-- Footer Bottom -->
-    <div class="footer-bottom">
-        <p>&copy; 2025 Npx Core. All rights reserved.</p>
-        <div class="footer-bottom-links">
-            <a href="#">Privacy Policy</a>
-            <span>•</span>
-            <a href="#">Terms of Service</a>
-        </div>
-
+    <div class="card card-3" data-modal="3">
+      <div class="card-img-wrap">
+        <img src="Img_pagina/customsft.png" alt="Software a la Medida"/>
+        <span class="card-badge">SVC_03</span>
+      </div>
+      <div class="card-body">
+        <span class="card-tag">// soluciones a la medida</span>
+        <h3 class="card-title">Software a la Medida</h3>
+        <button class="card-btn">Ver más ▶</button>
+      </div>
+      <div class="card-line"></div>
     </div>
+
+    <div class="card card-4" data-modal="4">
+      <div class="card-img-wrap">
+        <img src="Img_pagina/ux_ui.png" alt="Diseño UI/UX"/>
+        <span class="card-badge">SVC_04</span>
+      </div>
+      <div class="card-body">
+        <span class="card-tag">// interfaces & experiencia</span>
+        <h3 class="card-title">Diseño UI/UX</h3>
+        <button class="card-btn">Ver más ▶</button>
+      </div>
+      <div class="card-line"></div>
+    </div>
+
+    <div class="card card-5" data-modal="5">
+      <div class="card-img-wrap">
+        <img src="Img_pagina/ecomerce.png" alt="Soluciones E-Commerce"/>
+        <span class="card-badge">SVC_05</span>
+      </div>
+      <div class="card-body">
+        <span class="card-tag">// tiendas & plataformas</span>
+        <h3 class="card-title">Soluciones E-Commerce</h3>
+        <button class="card-btn">Ver más ▶</button>
+      </div>
+      <div class="card-line"></div>
+    </div>
+
+    <div class="card card-6" data-modal="6">
+      <div class="card-img-wrap">
+        <img src="Img_pagina/cloud.png" alt="Cloud & DevOps"/>
+        <span class="card-badge">SVC_06</span>
+      </div>
+      <div class="card-body">
+        <span class="card-tag">// infraestructura & CI/CD</span>
+        <h3 class="card-title">Cloud & DevOps</h3>
+        <button class="card-btn">Ver más ▶</button>
+      </div>
+      <div class="card-line"></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════
+     MODAL
+════════════════════════════════════════════════ -->
+<!-- ════════════════════════════════════════════════
+     MODAL
+════════════════════════════════════════════════ -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal" id="modal">
+    <div class="modal-img-wrap">
+      <img src="" alt="" class="modal-img" id="modalImg"/>
+      <div class="modal-img-fade"></div>
+      <button class="modal-close" id="modalClose">✕</button>
+    </div>
+    <div class="modal-body">
+      <span class="modal-id" id="modalId"></span>
+      <h3 class="modal-title" id="modalTitle"></h3>
+      <div class="modal-divider"></div>
+      <p class="modal-desc" id="modalDesc"></p>
+      <ul class="modal-features" id="modalFeatures"></ul>
+      <button class="modal-cta" id="btnCotizarDesdeModal">
+        Solicitar cotización ▶
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════
+     CONTACT
+════════════════════════════════════════════════ -->
+<section id="contact" class="contact-section">
+  <div class="neon-line"></div>
+
+  <div class="contact-header reveal up" style="text-align:center;margin-bottom:50px;padding-top:50px;">
+    <span class="sec-label">// sistema.contacto</span>
+    <h2 class="sec-title">
+      <span class="glitch-wrap" data-text="CONTÁCTANOS">CONTÁCTANOS</span>
+    </h2>
+    <p style="font-size:15px;color:var(--muted);margin-top:12px;letter-spacing:1px;">
+      Cuéntanos tu proyecto — te respondemos rápido
+    </p>
+    <div class="hlines"><span></span><i></i><span></span></div>
+  </div>
+
+  <div class="contact-container">
+    <div class="contact-image reveal left">
+      <img src="Img_pagina/logodesarrollo.jpeg" alt="Contact Us"/>
+    </div>
+
+    <div class="contact-form-wrapper reveal right">
+      <h3 class="contact-title">Construyamos Algo</h3>
+      <form id="contactForm" class="contact-form">
+        <div class="form-group">
+          <label for="name">Nombre</label>
+          <input type="text" id="name" name="name" placeholder="Ingresa tu nombre" required/>
+        </div>
+        <div class="form-group">
+          <label for="phone">Teléfono</label>
+          <input type="tel" id="phone" name="phone" placeholder="Ingresa tu número de teléfono" required/>
+        </div>
+        <div class="form-group">
+          <label for="request">Solicitud</label>
+          <textarea id="request" name="request" rows="5" placeholder="Cuéntanos sobre tu proyecto o consulta" required></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Enviar por WhatsApp ▶</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════════ -->
+<div class="neon-line" style="position:relative;z-index:1;"></div>
+<footer class="footer" id="about">
+  <div class="footer-container">
+
+    <div class="footer-brand">
+      <h3>Npx Core <span class="tag-footer">&lt;/&gt;</span></h3>
+      <p class="footer-description">
+        Transformando ideas en soluciones digitales escalables.
+        Construimos el futuro, una línea de código a la vez.
+      </p>
+      <div class="social-icons">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+
+    <div class="footer-column">
+      <h4>Servicios</h4>
+      <ul>
+        <li><a href="#">Desarrollo Web</a></li>
+        <li><a href="#">Apps Móviles</a></li>
+        <li><a href="#">Software a la Medida</a></li>
+        <li><a href="#">Diseño UI/UX</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h4>Empresa</h4>
+      <ul>
+        <li><a href="#">Quiénes Somos</a></li>
+        <li><a href="#">Nuestro Equipo</a></li>
+        <li><a href="#">Trabaja con Nosotros</a></li>
+        <li><a href="#">Blog</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h4>Contacto</h4>
+      <ul>
+        <li><i class="fas fa-phone"></i><a href="tel:3012655645">301 265 5645</a></li>
+        <li><i class="fas fa-phone"></i><a href="tel:3142944456">314 294 4456</a></li>
+        <li><i class="fas fa-envelope"></i><a href="mailto:stevanpre@gmail.com">stevanpre@gmail.com</a></li>
+        <li><i class="fas fa-envelope"></i><a href="mailto:marinonaranjoj@gmail.com">marinonaranjoj@gmail.com</a></li>
+        <li><i class="fas fa-map-marker-alt"></i><span>Colombia</span></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 Npx Core. Todos los derechos reservados.</p>
+    <div class="footer-bottom-links">
+      <a href="#">Política de Privacidad</a>
+      <span>•</span>
+      <a href="#">Términos de Servicio</a>
+    </div>
+  </div>
 </footer>
 
-<!-- CDN de iconos Font Awesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<script src="Js_Pagina/Carrusel.js" defer></script>
-<script src="Js_Pagina/Pagina.js" defer></script>
-<script src="Js_Pagina/contacto.js" defer></script>
+<!-- ════════════════════════════════════════════════
+     JAVASCRIPT
+════════════════════════════════════════════════ -->
+<script>
+/* ──────────────────────────────────────
+   PARTÍCULAS
+────────────────────────────────────── */
+const canvas = document.getElementById('particle-canvas');
+const ctx    = canvas.getContext('2d');
+const COLS   = ['#00f5ff','#ff0080','#00ff88','#bf00ff','#ffaa00','#00aaff'];
+let W, H, particles = [];
+
+function resize(){ W = canvas.width = innerWidth; H = canvas.height = innerHeight; }
+resize(); window.addEventListener('resize', resize);
+
+class P {
+  constructor(){ this.reset(true); }
+  reset(init){
+    this.x = Math.random()*W;
+    this.y = init ? Math.random()*H : H+8;
+    this.vx = (Math.random()-.5)*.35;
+    this.vy = -(Math.random()*.5+.15);
+    this.r  = Math.random()*1.5+.3;
+    this.col= COLS[Math.floor(Math.random()*COLS.length)];
+    this.a  = Math.random()*.4+.08;
+    this.life=0; this.max=Math.random()*260+180;
+  }
+  tick(){
+    this.x+=this.vx; this.y+=this.vy; this.life++;
+    if(this.life>this.max||this.y<-10) this.reset(false);
+  }
+  draw(){
+    ctx.save();
+    ctx.globalAlpha=this.a*(1-this.life/this.max);
+    ctx.fillStyle=this.col; ctx.shadowBlur=5; ctx.shadowColor=this.col;
+    ctx.beginPath(); ctx.arc(this.x,this.y,this.r,0,Math.PI*2); ctx.fill();
+    ctx.restore();
+  }
+}
+for(let i=0;i<90;i++) particles.push(new P());
+
+(function loop(){
+  ctx.clearRect(0,0,W,H);
+  for(let i=0;i<particles.length;i+=4){
+    for(let j=i+1;j<particles.length;j+=4){
+      const dx=particles[i].x-particles[j].x, dy=particles[i].y-particles[j].y;
+      const d=Math.sqrt(dx*dx+dy*dy);
+      if(d<80){
+        ctx.save(); ctx.globalAlpha=(1-d/80)*.045;
+        ctx.strokeStyle=particles[i].col; ctx.lineWidth=.35;
+        ctx.beginPath(); ctx.moveTo(particles[i].x,particles[i].y);
+        ctx.lineTo(particles[j].x,particles[j].y); ctx.stroke(); ctx.restore();
+      }
+    }
+  }
+  particles.forEach(p=>{p.tick();p.draw();});
+  requestAnimationFrame(loop);
+})();
+
+/* ──────────────────────────────────────
+   HEADER SCROLL
+────────────────────────────────────── */
+const header = document.getElementById('mainHeader');
+window.addEventListener('scroll', ()=>{
+  header.classList.toggle('scrolled', scrollY > 40);
+});
+
+/* ──────────────────────────────────────
+   HAMBURGER
+────────────────────────────────────── */
+const burger = document.getElementById('hamburger');
+const nav    = document.getElementById('mainNav');
+burger.addEventListener('click', ()=>{
+  burger.classList.toggle('open');
+  nav.classList.toggle('open');
+});
+nav.querySelectorAll('.nav-link').forEach(l=>{
+  l.addEventListener('click',()=>{
+    burger.classList.remove('open');
+    nav.classList.remove('open');
+  });
+});
+
+/* ──────────────────────────────────────
+   CAROUSEL
+────────────────────────────────────── */
+const track     = document.getElementById('carouselTrack');
+const dotsWrap  = document.getElementById('carouselDots');
+const slides    = track.querySelectorAll('.slide');
+let current     = 0;
+let autoTimer;
+
+slides.forEach((_,i)=>{
+  const d = document.createElement('div');
+  d.className = 'dot' + (i===0?' active':'');
+  d.addEventListener('click',()=> goTo(i));
+  dotsWrap.appendChild(d);
+});
+const dots = dotsWrap.querySelectorAll('.dot');
+
+function goTo(n){
+  current = (n + slides.length) % slides.length;
+  track.style.transform = `translateX(-${current*100}%)`;
+  dots.forEach((d,i)=> d.classList.toggle('active', i===current));
+  resetAuto();
+}
+document.getElementById('prevBtn').addEventListener('click',()=> goTo(current-1));
+document.getElementById('nextBtn').addEventListener('click',()=> goTo(current+1));
+
+function resetAuto(){
+  clearInterval(autoTimer);
+  autoTimer = setInterval(()=> goTo(current+1), 5000);
+}
+resetAuto();
+
+/* ──────────────────────────────────────
+   SCROLL REVEAL
+────────────────────────────────────── */
+const revObs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){ e.target.classList.add('visible'); revObs.unobserve(e.target); }
+  });
+},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=> revObs.observe(el));
+
+/* card scroll reveal */
+const cardObs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){ e.target.classList.add('visible'); cardObs.unobserve(e.target); }
+  });
+},{threshold:.1});
+document.querySelectorAll('.card').forEach(el=> cardObs.observe(el));
+
+/* ──────────────────────────────────────
+   MODAL DATA
+────────────────────────────────────── */
+const SERVICES = {
+  1:{ id:'SVC_01 // DESARROLLO WEB', title:'Desarrollo Web',
+      img:'Img_pagina/image_3.png',accent:'#00f5ff',
+      desc:'Construimos sitios web y aplicaciones de alto rendimiento usando las tecnologías más modernas del mercado. Desde landing pages que convierten hasta plataformas SaaS complejas, entregamos soluciones escalables y accesibles con resultados reales para tu negocio.',
+      features:['React / Next.js / Vue','Node.js & APIs REST','SEO técnico avanzado','Optimización PWA','CMS headless','Despliegue en la nube'] },
+  2:{ id:'SVC_02 // APPS MÓVILES', title:'Apps Móviles',
+      img:'Img_pagina/desarrollo%20movil.png',accent:'#00ff88',
+      desc:'Desarrollamos aplicaciones móviles nativas e híbridas para iOS y Android con experiencias de usuario de primer nivel. Con React Native y Flutter maximizamos la cobertura de plataformas sin sacrificar rendimiento, con integración total a backend y servicios de terceros.',
+      features:['React Native & Flutter','Swift / Kotlin nativo','Notificaciones push','Pagos in-app','Modo sin conexión','Publicación en tiendas'] },
+  3:{ id:'SVC_03 // SOFTWARE A LA MEDIDA', title:'Software a la Medida',
+      img:'Img_pagina/customsft.png',accent:'#bf00ff',
+      desc:'Diseñamos y desarrollamos software empresarial adaptado exactamente a tu flujo de trabajo. Analizamos tu operación, identificamos cuellos de botella y construimos herramientas que automatizan procesos, reducen costos y le dan a tu equipo una ventaja competitiva real.',
+      features:['Análisis de requerimientos','Arquitectura escalable','Integraciones ERP/CRM','Seguridad y cumplimiento','Mantenimiento continuo','Documentación técnica'] },
+  4:{ id:'SVC_04 // DISEÑO UI/UX', title:'Diseño UI/UX',
+      img:'Img_pagina/ux_ui.png',accent:'#ff0080',
+      desc:'El diseño es la diferencia entre un producto que se abandona y uno que genera lealtad. Creamos interfaces intuitivas basadas en investigación de usuarios, pruebas de usabilidad y sistemas de diseño robustos que aceleran el desarrollo y garantizan coherencia visual.',
+      features:['Investigación & wireframes','Prototipado interactivo','Sistemas de diseño','Figma / Adobe XD','Pruebas de usabilidad','Diseño responsivo'] },
+  5:{ id:'SVC_05 // E-COMMERCE', title:'Soluciones E-Commerce',
+      img:'Img_pagina/ecomerce.png',accent:'#ffaa00',
+      desc:'Construimos plataformas de comercio electrónico listas para crecer. Desde tiendas Shopify personalizadas hasta soluciones headless con WooCommerce, integramos pasarelas de pago, gestión de inventario, automatización de marketing y analytics para vender más con menos fricción.',
+      features:['Shopify / WooCommerce','Pasarelas de pago','Gestión de inventario','Analytics & conversión','SEO para e-commerce','Automatización de emails'] },
+  6:{ id:'SVC_06 // CLOUD & DEVOPS', title:'Cloud & DevOps',
+      img:'Img_pagina/cloud.png',accent:'#00aaff',
+      desc:'Migramos, optimizamos y gestionamos tu infraestructura en la nube para garantizar disponibilidad, seguridad y escalabilidad. Implementamos pipelines CI/CD, contenedores Docker y orquestación con Kubernetes, con monitoreo proactivo 24/7 para cero tiempo de inactividad.',
+      features:['AWS / GCP / Azure','Docker & Kubernetes','Pipelines CI/CD','Monitoreo & alertas','Copias de seguridad automáticas','Optimización de costos'] },
+};
+
+const overlay   = document.getElementById('modalOverlay');
+const modal     = document.getElementById('modal');
+const modalImg  = document.getElementById('modalImg');
+
+function openModal(id){
+  const d = SERVICES[id]; if(!d) return;
+  modal.style.setProperty('--modal-accent', d.accent);
+  overlay.style.setProperty('--modal-accent', d.accent);
+  modalImg.src = d.img; modalImg.alt = d.title;
+  document.getElementById('modalId').textContent    = d.id;
+  document.getElementById('modalTitle').textContent = d.title;
+  document.getElementById('modalDesc').textContent  = d.desc;
+  document.getElementById('modalFeatures').innerHTML =
+    d.features.map(f=>`<li>${f}</li>`).join('');
+  overlay.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal(){
+  overlay.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+document.querySelectorAll('.card').forEach(c=>{
+  c.addEventListener('click',()=> openModal(+c.dataset.modal));
+});
+document.getElementById('modalClose').addEventListener('click', closeModal);
+overlay.addEventListener('click', e=>{ if(e.target===overlay) closeModal(); });
+document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeModal(); });
+
+/* ──────────────────────────────────────
+   CONTACT FORM → WhatsApp
+────────────────────────────────────── */
+document.getElementById('contactForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const name    = document.getElementById('name').value.trim();
+  const phone   = document.getElementById('phone').value.trim();
+  const request = document.getElementById('request').value.trim();
+  const msg = encodeURIComponent(
+    `*Nueva consulta desde la web de Npx Core*\n\n*Nombre:* ${name}\n*Teléfono:* ${phone}\n\n*Mensaje:*\n${request}`
+  );
+  window.open(`https://wa.me/573012655645?text=${msg}`, '_blank');
+});
+
+/* ──────────────────────────────────────
+   ACTIVE NAV ON SCROLL
+────────────────────────────────────── */
+const sections = document.querySelectorAll('section[id], footer[id]');
+const navLinks  = document.querySelectorAll('.nav-link');
+window.addEventListener('scroll', ()=>{
+  let cur = '';
+  sections.forEach(s=>{
+    if(scrollY >= s.offsetTop - 100) cur = s.id;
+  });
+  navLinks.forEach(l=>{
+    l.classList.toggle('active', l.getAttribute('href')==='#'+cur);
+  });
+},{passive:true});
+
+/* ──────────────────────────────────────
+   CERRAR MODAL E IR A CONTACTO
+────────────────────────────────────── */
+document.getElementById('btnCotizarDesdeModal').addEventListener('click', function() {
+  // Cerrar el modal
+  closeModal();
+  
+  // Pequeño retraso para permitir que el modal se cierre antes de hacer scroll
+  setTimeout(function() {
+    document.getElementById('contact').scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+  }, 150); // 150ms es suficiente para la animación de cierre del modal
+});
+</script>
 </body>
 </html>
