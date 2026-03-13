@@ -684,9 +684,9 @@
   .contact-image::before{top:0;left:0;border-top:2px solid var(--cyan);border-left:2px solid var(--cyan);}
   .contact-image::after{bottom:0;right:0;border-bottom:2px solid var(--pink);border-right:2px solid var(--pink);}
   .contact-image img{
-    width:100%;display:block;
-    filter:saturate(.65)brightness(.7);
-    transition:filter .4s;
+    width:100%; height:210px; object-fit:cover; display:block;
+    transition: transform .45s ease, filter .4s ease;
+    filter: saturate(.75) brightness(.8);
   }
   .contact-image:hover img{filter:saturate(.9)brightness(.8);}
 
