@@ -1,4 +1,4 @@
-  /* ════════════════════════════════════════════════
+/* ════════════════════════════════════════════════
      RESET & TOKENS
   ════════════════════════════════════════════════ */
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -67,12 +67,6 @@
   .reveal.visible { opacity: 1; transform: none; }
 
   /* Glitch helper */
-  .glitch-wrap { position: relative; display: inline-block; }
-  .glitch-wrap::before, .glitch-wrap::after {
-    content: attr(data-text);
-    position: absolute; inset: 0;
-    font-family: inherit; font-size: inherit; font-weight: inherit;
-  }
   .glitch-wrap::before {
     background: linear-gradient(135deg,#ff0080,var(--cyan));
     -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
@@ -233,8 +227,8 @@
     font-family: 'Orbitron', monospace;
     font-size: clamp(42px,7vw,88px);
     font-weight: 900; line-height: 1;
-    background: #ffffff;
-    -webkit-background-clip: text;
+    background: linear-gradient(135deg,#fff 0%,var(--cyan) 40%,var(--pink) 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     background-clip: text;
     margin-bottom: 8px;
     animation: fadeIn .8s ease .4s both;
@@ -678,21 +672,15 @@
     border:1px solid var(--border);
     border-radius:6px; overflow:hidden;
   }
-  .contact-image::before,.contact-image::after{
-    content:''; position:absolute; width:18px;height:18px; z-index:2;
-  }
+  
   .contact-image::before{top:0;left:0;border-top:2px solid var(--cyan);border-left:2px solid var(--cyan);}
   .contact-image::after{bottom:0;right:0;border-bottom:2px solid var(--pink);border-right:2px solid var(--pink);}
   .contact-image img{
-    width:100%; height:210px; object-fit:cover; display:block;
+    width:100%; height:250px; object-fit:cover; display:block;
     transition: transform .45s ease, filter .4s ease;
     filter: saturate(.75) brightness(.8);
   }
-  .contact-image:hover img{filter:saturate(.9)brightness(.8);}
-
-  /* Form */
-  .contact-form-wrapper{}
-
+  
   .contact-title{
     font-family:'Orbitron',monospace;
     font-size:clamp(26px,3.5vw,40px);
@@ -838,5 +826,3 @@
     .footer-container{grid-template-columns:1fr;}
     .footer-bottom{flex-direction:column;text-align:center;}
   }
-
-  
